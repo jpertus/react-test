@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Box, CardActions, List, Grid, Card, CardHeader, Avatar, IconButton } from '@mui/material'
 import { red } from '@mui/material/colors';
 import AddIcon from '@mui/icons-material/Add';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AddPostModal from './Post/AddPostModal'
 import Post from './Post'
 
@@ -19,11 +18,6 @@ const User = ({ user }) => {
             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
               {user.name[0]}
             </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
           }
           title={user.name}
           subheader={user.email}

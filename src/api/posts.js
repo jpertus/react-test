@@ -18,8 +18,6 @@ export const postPost = async (data) => {
       },
     })
     const post = await postResponse.json()
-    console.log('post')
-    console.log(post)
     return post
   } catch (error) {
     return error

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { Alert, Dialog, TextField, Grid, Box, Button } from '@mui/material'
-import { postPost } from '../../api/posts'
+import { postPost } from '../../../api/posts'
 
 const postSchema = Yup.object({
   title: Yup.string().min(1, 'Minimum 1 caractère').max(255, 'Maximum 5 caractères').required('Le titre est obligatoire'), 

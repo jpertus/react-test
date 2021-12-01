@@ -1,13 +1,13 @@
 import './App.css';
-import UsersWithPosts from './components/UsersWithPosts'
+import Users from './components/Users'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-body">
         <h2>Test technique ReactJS</h2>
-        <UsersWithPosts />
-      </header>
+        <Users />
+      </div>
     </div>
   );
 }

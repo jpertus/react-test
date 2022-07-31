@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Box, CardActions, List, Grid, Card, CardHeader, Avatar, IconButton } from '@mui/material'
 import { red } from '@mui/material/colors';
 import AddIcon from '@mui/icons-material/Add';
@@ -10,7 +10,7 @@ const User = ({ user }) => {
 
   const [open, setOpen] = useState(false)
 
-  return (
+  const render = useMemo(() => (
     <Grid item>
       <Card sx={{ maxWidth: 345 }}>
         <CardHeader
@@ -49,7 +49,9 @@ const User = ({ user }) => {
         />
       </Card>
     </Grid>
-  )
+  ), [open, user.id])
+
+  return <>{render}</>
 }
 
 export default User

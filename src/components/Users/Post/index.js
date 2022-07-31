@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 import PostModal from './PostModal'
 
 const Post = ({ post }) => {
   const [open, setOpen] = useState(false)
-  
-  return (
+
+  const render = useMemo(() => (
     <>
       <ListItem onClick={() => setOpen(true)} disablePadding>
         <ListItemButton>
@@ -15,6 +15,10 @@ const Post = ({ post }) => {
       </ListItem>
       <PostModal open={open} onClose={() => setOpen(false)} post={post} />
     </>
+  ), [open, post.id])
+  
+  return (
+    <>{render}</>
   )
 }
 

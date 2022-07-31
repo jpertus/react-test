@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useAsync } from 'react-use'
 import { Box, Typography, Modal } from '@mui/material';
 import { getComments } from '../../../api/comments'
 
@@ -17,13 +17,9 @@ const stylePostModal = {
 }
 
 const PostModal = ({ open, onClose, post }) => {
-  const [comments, setComments] = useState([])
+  const fetchState = useAsync(async () => getComments(post.id), [post.id])
 
-  useEffect(() => {
-    if (open) {
-      getComments(post.id, setComments)
-    }
-  }, [post.id, open])
+  const comments = Array.isArray(fetchState.value) ? fetchState.value : []
 
   return (
     <div>
